@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Vitae Support</title>
+  <meta name="description" content="Vitae Support — Help, FAQ, Contact, and Privacy Policy." />
+
+  <style>
+    :root{
+      --bg0:#040806;
+      --bg1:#070f0b;
+      --bg2:#0b1711;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.65);
+      --muted2: rgba(255,255,255,.52);
+      --accent:#39d98a;   /* mint green */
+      --accent2:#2aa66c;  /* deep mint */
+      --shadow: 0 22px 80px rgba(0,0,0,.55);
+      --r: 20px;
+      --r2: 28px;
+      --max: 1080px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(57,217,138,.16), transparent 55%),
+        radial-gradient(900px 600px at 85% 25%, rgba(42,166,108,.10), transparent 55%),
+        radial-gradient(800px 600px at 40% 90%, rgba(57,217,138,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg2), var(--bg0) 55%, #000 100%);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 54px}
+
+    /* top nav */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 4px 22px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none;
+    }
+    .orb{
+      width:38px; height:38px; border-radius:999px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), rgba(255,255,255,0) 55%),
+        radial-gradient(circle at 65% 70%, rgba(57,217,138,.25), rgba(57,217,138,0) 60%),
+        radial-gradient(circle at 50% 50%, rgba(57,217,138,.14), rgba(0,0,0,.25) 70%),
+        linear-gradient(180deg, rgba(57,217,138,.22), rgba(0,0,0,.55));
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.10) inset,
+        0 12px 42px rgba(57,217,138,.20);
+    }
+    .brand h1{
+      margin:0; font-size:16px; letter-spacing:.6px; font-weight:800;
+    }
+    .brand span{display:block; font-size:12px; color:var(--muted2); font-weight:600; margin-top:1px}
+    .navlinks{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .chip{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:rgba(255,255,255,.82);
+      font-weight:700;
+      font-size:12px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .chip:hover{transform: translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.14)}
+    .chip:focus{outline:2px solid rgba(57,217,138,.55); outline-offset:2px}
+
+    /* hero */
+    .hero{
+      display:grid; gap:16px;
+      padding:26px 18px;
+      border-radius:var(--r2);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width:420px; height:420px; border-radius:999px;
+      background: radial-gradient(circle, rgba(57,217,138,.22), transparent 62%);
+      filter: blur(10px);
+      pointer-events:none;
+    }
+    .hero h2{margin:0; font-size:34px; line-height:1.08; letter-spacing:-.5px}
+    .hero p{margin:0; color:var(--muted); font-size:15px; line-height:1.55; max-width:70ch}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-weight:800;
+      font-size:13px;
+      color:rgba(255,255,255,.88);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.16)}
+    .btnPrimary{
+      background: linear-gradient(180deg, rgba(57,217,138,.95), rgba(42,166,108,.90));
+      color:#05110a;
+      border-color: rgba(57,217,138,.55);
+    }
+    .btnPrimary:hover{background: linear-gradient(180deg, rgba(57,217,138,1), rgba(42,166,108,.96))}
+    .meta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      color:var(--muted2);
+      font-size:12px;
+      font-weight:700;
+      margin-top:8px;
+    }
+    .dot{opacity:.35}
+
+    /* grid */
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+    }
+    @media (max-width: 880px){
+      .grid{grid-template-columns:1fr}
+      .hero h2{font-size:30px}
+    }
+
+    /* cards */
+    .card{
+      border-radius:var(--r);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 60px rgba(0,0,0,.38);
+      padding:18px;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .card p, .card li{color:var(--muted); font-size:14px; line-height:1.55}
+    .card ul{margin:10px 0 0; padding-left:18px}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.86);
+      font-weight:800;
+      font-size:13px;
+      margin:8px 0 0;
+      word-break:break-word;
+    }
+    code{
+      background: rgba(0,0,0,.30);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      color: rgba(255,255,255,.84);
+    }
+    .small{font-size:12px; color:var(--muted2); font-weight:650; margin-top:8px}
+
+    /* FAQ accordion */
+    details{
+      border-radius:16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      padding:12px 12px;
+      margin:10px 0;
+      transition: background .12s ease, border-color .12s ease;
+    }
+    details[open]{background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.14)}
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:900;
+      color: rgba(255,255,255,.90);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      font-size:14px;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary .chev{opacity:.55}
+    details p{margin:10px 0 0}
+
+    /* footer */
+    footer{
+      margin-top:18px;
+      padding:18px 2px 0;
+      color: var(--muted2);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .footerLinks{display:flex; gap:12px; flex-wrap:wrap}
+    .footerLinks a{color:var(--muted2); text-decoration:none; font-weight:750}
+    .footerLinks a:hover{color:rgba(255,255,255,.82)}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="nav">
+      <a class="brand" href="#top" aria-label="Vitae Support Home">
+        <div class="orb" aria-hidden="true"></div>
+        <div>
+          <h1>Vitae <span>Support</span></h1>
+        </div>
+      </a>
+
+      <nav class="navlinks" aria-label="Support navigation">
+        <a class="chip" href="#contact">Contact</a>
+        <a class="chip" href="#faq">FAQ</a>
+        <a class="chip" href="#troubleshooting">Troubleshooting</a>
+        <a class="chip" href="#privacy">Privacy</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <h2>Help, support, and a calmer reset.</h2>
+      <p>
+        Vitae is built for emotional awareness — quick journaling, guided meditation experiences,
+        and an optional AI assistant for reflection. If something isn’t working, you’re in the right place.
+      </p>
+
+      <div class="ctaRow">
+        <!-- Replace the email below when you create it -->
+        <a class="btn btnPrimary" href="vitae.contact.app@gmail.com">
+          Email Support
+        </a>
+        <a class="btn" href="#faq">View FAQ</a>
+        <a class="btn" href="#troubleshooting">Quick Fixes</a>
+      </div>
+
+      <div class="meta">
+        <span>Response time: typically within 1–2 days</span>
+        <span class="dot">•</span>
+        <span>Include screenshots if possible</span>
+      </div>
+    </section>
+
+    <section class="grid">
+
+      <div class="card" id="contact">
+        <h3>Contact Support</h3>
+        <p>
+          For the fastest help, email us with a short description of what happened.
+          If you can, include your device and iOS version.
+        </p>
+
+        <div class="pill">
+          📩 Email: <span style="font-weight:900">vitae.contact.app@gmail.com</span>
+        </div>
+
+        <p class="small">
+          Tip: Copy/paste this into your email:
+          <br />
+          <code>Device:</code> iPhone model &nbsp; <code>iOS:</code> version &nbsp;
+          <code>Steps:</code> what you tapped &nbsp; <code>Expected:</code> what you wanted &nbsp;
+          <code>Actual:</code> what happened
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Common Requests</h3>
+        <ul>
+          <li>Report a bug or crash</li>
+          <li>Questions about the AI assistant</li>
+          <li>Account / profile issues</li>
+          <li>Data deletion request</li>
+          <li>Feature suggestions</li>
+        </ul>
+        <p class="small">
+          If you’re requesting data deletion, please include the email used in your profile (if any).
+        </p>
+      </div>
+
+      <div class="card" id="faq" style="grid-column: 1 / -1;">
+        <h3>FAQ</h3>
+
+        <details>
+          <summary>
+            How do I edit my profile?
+            <span class="chev">⌄</span>
+          </summary>
+          <p>
+            Open the side menu → tap your profile header → select <strong>Edit Profile</strong>.
+            Your changes save automatically when you tap Save.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            How does the AI Assistant work?
+            <span class="chev">⌄</span>
+          </summary>
+          <p>
+            The AI Assistant responds to what you type in the Assistant screen. It’s designed for reflection,
+            grounding, and emotional awareness — not medical diagnosis.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            What information is sent when I use the AI Assistant?
+            <span class="chev">⌄</span>
+          </summary>
+          <p>
+            Only the text you submit in the AI Assistant is used to generate a response.
+            Vitae is designed so you stay in control of what you share.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            Can I use Vitae without the AI Assistant?
+            <span class="chev">⌄</span>
+          </summary>
+          <p>
+            Yes. Journaling and meditation experiences work without using the AI Assistant.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            How do I request data deletion?
+            <span class="chev">⌄</span>
+          </summary>
+          <p>
+            Email support with the subject <code>Data Deletion Request</code> and include the email in your profile.
+            We’ll confirm once your data has been removed.
+          </p>
+        </details>
+      </div>
+
+      <div class="card" id="troubleshooting">
+        <h3>Troubleshooting</h3>
+        <ul>
+          <li><strong>App feels slow:</strong> restart the app and your device, then try again.</li>
+          <li><strong>AI response fails:</strong> check connection, try a shorter prompt, then retry.</li>
+          <li><strong>UI looks wrong:</strong> close and reopen the app. If it persists, email support with a screenshot.</li>
+          <li><strong>Profile image not updating:</strong> reselect the photo, then fully close the app and relaunch.</li>
+        </ul>
+        <p class="small">
+          If the issue happens repeatedly, send us: <code>device</code>, <code>iOS version</code>, and the <code>steps</code>.
+        </p>
+      </div>
+
+      <div class="card" id="privacy">
+        <h3>Privacy & Safety</h3>
+        <p>
+          Vitae is built for reflection and emotional awareness. It is not medical advice and is not a substitute for professional care.
+        </p>
+        <p>
+          <strong>Privacy Policy:</strong>
+          <a href="file:///Users/vihaandas/Documents/Python/privacy.html" style="color: rgba(57,217,138,.92); font-weight:900; text-decoration:none;">
+            View Privacy Policy
+          </a>
+        </p>
+        <p class="small">
+          Replace <code>file:///Users/vihaandas/Documents/Python/privacy.html</code> with your real privacy policy link.
+        </p>
+      </div>
+
+      <div class="card" style="grid-column: 1 / -1;">
+        <h3>App Information</h3>
+        <p class="small">
+          Version: <code>1.0</code> &nbsp; • &nbsp; Updated: <code>YYYY-MM-DD</code> &nbsp; • &nbsp; Platform: <code>iOS</code>
+        </p>
+        <p class="small">
+          © <span id="year"></span> Vitae. All rights reserved.
+        </p>
+      </div>
+
+    </section>
+
+    <footer>
+      <div>Vitae Support</div>
+      <div class="footerLinks">
+        <a href="#contact">Contact</a>
+        <a href="#faq">FAQ</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
